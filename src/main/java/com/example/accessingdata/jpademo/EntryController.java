@@ -13,9 +13,14 @@ public class EntryController {
     @Autowired
     EntryRepository entryRepository;
 
-    @GetMapping("/entry")
-    public List<EntryDto> getEntries() {
+    @GetMapping("/entrydto")
+    public List<EntryDto> getEntryDtos() {
         return entryRepository.findAll().stream().
                 map(EntryDto::new).collect(Collectors.toList());
+    }
+
+    @GetMapping("/entry")
+    public List<Entry> getEntries() {
+        return entryRepository.findAll();
     }
 }

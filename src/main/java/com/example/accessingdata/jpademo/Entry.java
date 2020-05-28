@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
+@NamedEntityGraph(name = "EntryWithSummoner", attributeNodes = @NamedAttributeNode("summoner"))
 public class Entry {
     @GeneratedValue
     @Id
@@ -19,6 +20,6 @@ public class Entry {
 
     String rank;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     Summoner summoner;
 }
